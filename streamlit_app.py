@@ -1,5 +1,4 @@
 # Import python packages
-import panda as pd
 import streamlit as st
 from snowflake.snowpark.functions import col
 import requests
@@ -19,6 +18,8 @@ session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select (col('Fruit_name'),col('SEARCH_ON'))
 # st.dataframe(data=my_dataframe, use_container_width=True)
 # st.stop
+
+import panda as pd
 
 pd_df=my_dataframe.to.panda()
 st.dataframe(pd_df)
